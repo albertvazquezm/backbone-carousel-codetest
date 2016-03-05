@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Marionette Carousel Codetest</title>
+  <meta name="description" content="Marionette Carousel Codetest">
+  <meta name="author" content="hola@albertvazquez.es">
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="dist/css/main.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script type="text/template" id="slideshow-template">
+    <thead>
+    <tr class='header'>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+
+
+        <div class="carousel">
+            <ul>
+            </ul>
+        </div>
+    </script>
+    <script type="text/template" id="slide-template">
+    <td><%= name ></td>
+    </script>
+
+    <script src="node_modules/underscore/underscore.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/backbone/backbone.js"></script>
+    <script src="node_modules/backbone.babysitter/lib/backbone.babysitter.js"></script>
+    <script src="node_modules/backbone.wreqr/lib/backbone.wreqr.js"></script>
+    <script src="node_modules/backbone.marionette/lib/backbone.marionette.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/models/slide.model.js"></script>
+    <script src="app/collections/slideshow.collection.js"></script>
+    <script src="app/views/slide.view.js"></script>
+    <script src="app/views/slideshow.view.js"></script>
+    <script src="app/initializer.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      var slides = new window.app.SlideshowCollection([
+          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image one!'}),
+          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image two!'}),
+          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image three!'})
+      ]);
+
+      window.app.start({slides: slides});
+    });
+    </script>
+
+
+</body>
+</html>
