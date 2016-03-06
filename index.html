@@ -23,22 +23,14 @@
     </div>
 
     <script type="text/template" id="slideshow-template">
-    <thead>
-    <tr class='header'>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-
-
         <div class="carousel">
             <ul>
             </ul>
         </div>
     </script>
+
     <script type="text/template" id="slide-template">
-    <td><%= name ></td>
+    <li><%= name ></li>
     </script>
 
     <script src="node_modules/underscore/underscore.js"></script>
@@ -55,17 +47,7 @@
     <script src="app/views/slideshow.view.js"></script>
     <script src="app/initializer.js"></script>
 
-    <script>
-    $(document).ready(function(){
-      var slides = new window.app.SlideshowCollection([
-          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image one!'}),
-          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image two!'}),
-          new window.app.SlideModel({image : 'http://placehold.it/300x300', alt : 'Image three!'})
-      ]);
 
-      window.app.start({slides: slides});
-    });
-    </script>
 
 
 </body>
