@@ -1,20 +1,27 @@
 (function(app){
     'use strict';
 
-    app.addInitializer(function(options){
-      var slideshow = new app.SlideshowCollection(options.slides);
+    var slidesData = [
+        {
+            image : 'http://placehold.it/200x340',
+            alt : 'image two!'
+        },
+        {
+            image : 'http://placehold.it/300x300',
+            alt : 'image one!'
+        }
+    ];
 
-      var slideshowView = new app.SlideshowView({
-        collection: slideshow
-      });
-      app.mainRegion.show(slideshowView);
+    var list = new Backbone.Collection(slidesData);
+
+    //var slidesCollection = new app.SlideshowCollection(slidesData);
+
+    var slideshowView = new app.SlideshowView({
+        collection : list
     });
 
-    window.app.start({slides :
-      [
-        {image : 'http://placehold.it/300x300', alt : 'Image one!'},
-        {image : 'http://placehold.it/300x300', alt : 'Image two!'},
-        {image : 'http://placehold.it/300x300', alt : 'Image three!'}
-      ]});
+    slideshowView.render();
+
+    $('#app').append(slideshowView.el);
 
 })(window.app);
