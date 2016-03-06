@@ -9,6 +9,7 @@
   <meta name="author" content="hola@albertvazquez.es">
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="dist/css/main.css">
 
   <!--[if lt IE 9]>
@@ -23,10 +24,10 @@
     </div>
 
     <script type="text/template" id="slideshow-template">
-        <div class="carousel">
-            <ul>
-            </ul>
-        </div>
+        <i class="fa fa-arrow-left" />
+        <ul>
+        </ul>
+        <i class="fa fa-arrow-right" />
     </script>
 
     <script type="text/template" id="slide-template">
@@ -43,8 +44,8 @@
     <script src="app/app.js"></script>
     <script src="app/models/slide.model.js"></script>
     <script src="app/collections/slideshow.collection.js"></script>
-    <script src="app/views/slide.view.js"></script>
     <script src="app/views/slideshow.view.js"></script>
+    <script src="app/views/slideshowCol.view.js"></script>
     <script src="app/initializer.js"></script>
 
 

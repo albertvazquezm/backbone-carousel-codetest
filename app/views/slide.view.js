@@ -1,11 +1,11 @@
 (function(app){
     'use strict';
 
-    var SlideView = Backbone.Marionette.CompositeView.extend({
-        template: _.template('<img src="<%=image%>" alt="<%=alt%>"/>'),
+    var SlideshowView = Backbone.Marionette.ItemView.extend({
+        template: '#slide-template',
         tagName: 'li',
         className: 'slide'
     });
 
-    app.SlideView = SlideView;
+    app.SlideshowView = SlideshowView;
 })(window.app);

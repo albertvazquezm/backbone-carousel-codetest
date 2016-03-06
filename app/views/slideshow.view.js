@@ -1,10 +1,15 @@
 (function(app){
     'use strict';
 
-    var SlideshowView = Backbone.Marionette.CollectionView.extend({
-        template: _.template('<div><i class="arrow right"><ul></ul>'),
-        className: 'slideshow',
-        childView: app.SlideView,
+    var SlideshowView = Backbone.Marionette.CompositeView.extend({
+        template: '#slideshow-template',
+        tagName: 'li',
+        className: 'slide',
+        itemView: app.SlideView,
+        itemViewContainer: 'ul',
+        initialize: function(){
+            this.collection = this.model.get('images');
+        },
     });
 
     app.SlideshowView = SlideshowView;

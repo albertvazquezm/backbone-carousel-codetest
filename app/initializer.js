@@ -3,21 +3,28 @@
 
     var slidesData = [
         {
-            image : 'http://placehold.it/200x340',
-            alt : 'image two!'
-        },
-        {
-            image : 'http://placehold.it/300x300',
-            alt : 'image one!'
+            title : 'Slideshow 1',
+            images : [
+                'http://placehold.it/300x300',
+                'http://placehold.it/300x300',
+                'http://placehold.it/300x300'
+            ]
         }
     ];
 
+
     var list = new Backbone.Collection(slidesData);
 
-    //var slidesCollection = new app.SlideshowCollection(slidesData);
-
-    var slideshowView = new app.SlideshowView({
+    var slideshowView = new app.SlideshowColView({
         collection : list
+    });
+
+    var slidesh
+
+    slideshowView.each(function(slide){
+        var slides = slide.get('images');
+        var slidesCollection = new app.SlideshowCollection(slides);
+        hero.set('images', slidesCollection);
     });
 
     slideshowView.render();
