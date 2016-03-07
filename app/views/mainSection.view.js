@@ -3,7 +3,7 @@
 
     var MainSectionView = Backbone.View.extend({
         tagName: 'section',
-        className: 'main-section',
+        className: 'main',
 
         initialize: function(){
             this.collection.each(function(carousel){

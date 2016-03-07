@@ -2,9 +2,13 @@
     'use strict';
 
     var CarouselModel = Backbone.Model.extend({
-        defaults : {
+        defaults: {
+            index: 0,
             images : [],
             title : ''
+        },
+        config: {
+            numberOfSlides: 4
         }
     });
 

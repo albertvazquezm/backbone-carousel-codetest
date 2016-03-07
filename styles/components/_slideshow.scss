@@ -1,3 +1,31 @@
-.slideshow {
-
+.carousel {
+    overflow-y: hidden;
+    h1{
+        padding: 10px 0;
+        margin: 20px 0;
+        font-size: 32px;
+    }
+    .slides-wrapper{
+        position: relative;
+    }
+    &.four-elements{
+        i.fa{
+            @include vertical-align(absolute);
+            padding: 10px;
+            margin: 0 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            color: #fff;
+            &.fa-arrow-right{
+                right: 0;
+            }
+        }
+        ul{
+            overflow: hidden;
+            li{
+                float: left;
+                display: inline-block;
+            }
+        }
+    }
 }

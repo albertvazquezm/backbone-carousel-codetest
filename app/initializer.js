@@ -5,17 +5,26 @@
         {
             title : 'Our services',
             images : [
-                'http://placehold.it/300x300',
-                'http://placehold.it/300x300',
-                'http://placehold.it/300x300'
+                'http://fillmurray.com/200/300',
+                'http://fillmurray.com/g/200/300',
+                'http://placebear.com/g/200/300',
+                'http://fillmurray.com/g/200/300',
+                'http://placecage.com/g/200/300',
+                'http://fillmurray.com/g/200/300',
+                'http://placecage.com/c/200/300'
             ]
         },
         {
             title : 'Technology we love',
             images : [
-                'http://placehold.it/300x300',
-                'http://placehold.it/300x300',
-                'http://placehold.it/300x300'
+                'http://fillmurray.com/200/300',
+                'http://fillmurray.com/g/200/300',
+                'http://placebear.com/200/300 ',
+                'http://fillmurray.com/g/200/300',
+                'http://placebear.com/g/200/300',
+                'http://fillmurray.com/g/200/300',
+                'http://fillmurray.com/200/300',
+                'http://nicenicejpg.com/600/400'
             ]
         }
     ];

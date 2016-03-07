@@ -1,5 +1,12 @@
+@import 'variables/_color';
+@import 'utilities/_mixins';
 @import 'components/_slideshow';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+section.main{
+    width: 1190px;
+    margin: 0 auto;
 }
