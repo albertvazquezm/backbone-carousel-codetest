@@ -8,7 +8,8 @@
             title : ''
         },
         config: {
-            numberOfSlides: 4
+            numberOfSlides: 4,
+            animationDelay: 200
         }
     });
 

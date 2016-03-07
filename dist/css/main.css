@@ -5,7 +5,8 @@
     margin: 20px 0;
     font-size: 32px; }
   .carousel .slides-wrapper {
-    position: relative; }
+    position: relative;
+    overflow-x: hidden; }
   .carousel.four-elements i.fa {
     position: absolute;
     top: 50%;

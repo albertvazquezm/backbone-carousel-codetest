@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var connect = require('gulp-connect');
 
 gulp.task('sass', function () {
   return gulp.src('./styles/main.scss')
@@ -9,8 +10,12 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist/css'));
 });
 
+gulp.task('connect', function() {
+  connect.server();
+});
+
 gulp.task('sass:watch', function () {
     gulp.watch('./styles/**/*.scss', ['sass']);
 });
 
-gulp.task('dev', ['sass', 'sass:watch']);
+gulp.task('try', ['sass', 'sass:watch', 'connect']);

@@ -9,54 +9,57 @@
         initialize: initialize,
         render: render,
         events: {
-            'click .fa-arrow-left': 'moveLeft',
-            'click .fa-arrow-right': 'moveRight'
+            'click .fa-arrow-left': 'onClickOnLeft',
+            'click .fa-arrow-right': 'onClickOnRight'
         },
-        afterRender: afterRender,
-        generateRandomIndex: generateRandomIndex,
-        moveLeft: moveLeft,
-        moveRight: moveRight,
-        onIndexChanges: onIndexChanges
+
+        onClickOnLeft: onClickOnLeft,
+        onClickOnRight: onClickOnRight
     });
 
+
+    /**
+     * Initialize function
+     */
     function initialize(){
-        this.generateRandomIndex();
         this.render();
-        this.model.on('change:index', this.onIndexChanges.bind(this));
+        this.model.on('change:index', onIndexChanges.bind(this));
     }
 
+
+    /**
+     * Render function
+     */
     function render(){
         this.$el.html(this.template(this.model.toJSON()));
-        this.afterRender();
+        _afterRender.call(this);
     }
 
-    function afterRender(){
+    /**
+     * Handles afterRender event
+     */
+    function _afterRender(){
         _buildCarousel.call(this);
     }
 
-    function generateRandomIndex(){
-        var randomIndex = _getRandomInt(0, this.model.get('images').length);
-        this.model.set({index: Math.min(randomIndex, this.model.config.numberOfSlides)});
+    /**
+     * On click on left handler
+     */
+    function onClickOnLeft(){
+        this.model.set({
+            index: this.model.get('index') + 1
+        });
+        _moveCarousel.call(this, 'left');
     }
 
     /**
-     * Moves left the carousel
+     * On click on right handler
      */
-    function moveLeft(){
-        this.model.set({index: this.model.get('index') + 1});
-        this.$el.find('ul').animate({
-            'margin-left':'-='+this.slideWidth
-        }, 100);
-    }
-
-    /**
-     * Moves right the carousel
-     */
-    function moveRight(){
-        this.model.set({index: this.model.get('index') - 1});
-        this.$el.find('ul').animate({
-            'margin-left':'+='+this.slideWidth
-        }, 100);
+    function onClickOnRight(){
+        this.model.set({
+            index: this.model.get('index') - 1
+        });
+        _moveCarousel.call(this, 'right');
     }
 
     /**
@@ -69,7 +72,7 @@
             this.slideWidth = this.$el.width() / this.model.config.numberOfSlides;
             this.$el.find('li').width(this.slideWidth);
             this.$el.find('ul').width(this.slideWidth * this.numberOfSlides);
-            _setCarouselToIndex.call(this);
+            this.$el.find('.fa-arrow-left').hide();
         }.bind(this)).defer();
     }
 
@@ -83,22 +86,40 @@
       return Math.floor(Math.random() * (max - min)) + min;
     }
 
+    /**
+    * Handler for index changes
+    * @param {Object} model
+    * @param {*} new value
+    */
     function onIndexChanges(model, value){
         this.$el.find('.fa-arrow-right, .fa-arrow-left').show();
         if(value === 0){
-            this.$el.find('.fa-arrow-right').hide();
-        }else if((value + this.model.config.numberOfSlides) >= this.numberOfSlides){
-            this.$el.find('.fa-arrow-left').hide();
+            _disableArrow.call(this, 'left');
+        }else if((Math.abs(value) + this.model.config.numberOfSlides) >= this.numberOfSlides){
+            _disableArrow.call(this, 'right');
         }
     }
 
-    function _setCarouselToIndex(){
-        var distance = this.model.get('index') * this.slideWidth;
-        onIndexChanges.call(this);
-        this.$el.find('ul').css({
-            'margin-left':'-='+distance
-        });
+    /**
+    * Moves the carousel
+    * @param {String left|right} direction
+    */
+    function _moveCarousel(direction){
+        var operator = (direction === 'right' ? '-=' : '+=');
+        this.$el.find('ul').animate({
+            'margin-left': operator + this.slideWidth
+        }, this.model.config.animationDelay);
+    }
+
+    /**
+    * Disables given arrow
+    * @param {String left|right} arrow to be moved
+    */
+    function _disableArrow(arrow){
+        var selector = (arrow === 'right' ? '.fa-arrow-right' : '.fa-arrow-left');
+        this.$el.find(selector).hide();
     }
 
     app.CarouselView = CarouselView;
+
 })(window.app);
