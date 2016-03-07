@@ -1,11 +1,17 @@
 (function(app){
     'use strict';
 
-    var SlideshowView = Backbone.Marionette.ItemView.extend({
-        template: '#slide-template',
+    var SlideView = Backbone.View.extend({
         tagName: 'li',
-        className: 'slide'
+        template: _.template($('#slideshow-template').html()),
+
+        initialize: function(){
+            this.render();
+        },
+        render: function(){
+            this.$el.html(this.template(this.model.toJSON()));
+        }
     });
 
-    app.SlideshowView = SlideshowView;
+    app.SlideView = SlideView;
 })(window.app);

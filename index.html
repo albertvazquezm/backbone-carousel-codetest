@@ -20,12 +20,17 @@
 <body>
 
     <div id="app">
-
+        <section id="main-section">
+        </section>
     </div>
 
     <script type="text/template" id="slideshow-template">
+        <h1><%= title %></h1>
         <i class="fa fa-arrow-left" />
         <ul>
+            <% _.each(images, function(image){ %>
+                <img src="<%= image %>" />
+            <% }); %>
         </ul>
         <i class="fa fa-arrow-right" />
     </script>
@@ -46,6 +51,7 @@
     <script src="app/collections/slideshow.collection.js"></script>
     <script src="app/views/slideshow.view.js"></script>
     <script src="app/views/slideshowCol.view.js"></script>
+    <script src="app/views/slide.view.js"></script>
     <script src="app/initializer.js"></script>
 
 

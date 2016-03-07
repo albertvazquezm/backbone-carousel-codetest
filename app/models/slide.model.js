@@ -3,8 +3,8 @@
 
     var SlideModel = Backbone.Model.extend({
         defaults : {
-            image : '',
-            alt : ''
+            images : [],
+            title : ''
         }
     });
 

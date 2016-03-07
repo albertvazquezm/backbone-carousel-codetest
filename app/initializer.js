@@ -9,11 +9,26 @@
                 'http://placehold.it/300x300',
                 'http://placehold.it/300x300'
             ]
+        },
+        {
+            title : 'Slideshow 1',
+            images : [
+                'http://placehold.it/300x300',
+                'http://placehold.it/300x300',
+                'http://placehold.it/300x300'
+            ]
         }
     ];
 
+    app.slidesCollectionInstance = new app.SlideshowCollection(slidesData);
 
-    var list = new Backbone.Collection(slidesData);
+    var slideshowView = new app.SlideshowView({collection:app.slidesCollectionInstance});
+
+    slideshowView.render();
+
+    $('#main-section').append(slideshowView.el);
+
+    /*var list = new Backbone.Collection(slidesData);
 
     var slideshowView = new app.SlideshowColView({
         collection : list
@@ -29,6 +44,6 @@
 
     slideshowView.render();
 
-    $('#app').append(slideshowView.el);
+    $('#app').append(slideshowView.el);*/
 
 })(window.app);
