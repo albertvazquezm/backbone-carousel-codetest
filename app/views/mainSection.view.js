@@ -5,19 +5,17 @@
         tagName: 'section',
         className: 'main',
 
-        initialize: function(){
-            this.collection.each(function(carousel){
-                var carouselView = new app.CarouselView({
-                   model : carousel
-                });
-                this.$el.append(carouselView.el);
-            }, this);
-        },
-
-        render: function(){
-
-        }
+        initialize: initialize
     });
+
+    function initialize(){
+        this.collection.each(function(carousel){
+            var carouselView = new app.CarouselView({
+               model : carousel
+            });
+            this.$el.append(carouselView.el);
+        }, this);
+    }
 
     app.MainSectionView = MainSectionView;
 })(window.app);
