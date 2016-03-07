@@ -20,23 +20,18 @@
 <body>
 
     <div id="app">
-        <section id="main-section">
-        </section>
+
     </div>
 
-    <script type="text/template" id="slideshow-template">
+    <script type="text/template" id="carousel-template">
         <h1><%= title %></h1>
         <i class="fa fa-arrow-left" />
         <ul>
             <% _.each(images, function(image){ %>
-                <img src="<%= image %>" />
+                <li><img src="<%= image %>" /></li>
             <% }); %>
         </ul>
         <i class="fa fa-arrow-right" />
-    </script>
-
-    <script type="text/template" id="slide-template">
-    <img src="<%= image >" alt="<%= alt >"/>
     </script>
 
     <script src="node_modules/underscore/underscore.js"></script>
@@ -47,15 +42,10 @@
     <script src="node_modules/backbone.marionette/lib/backbone.marionette.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/models/slide.model.js"></script>
-    <script src="app/collections/slideshow.collection.js"></script>
-    <script src="app/views/slideshow.view.js"></script>
-    <script src="app/views/slideshowCol.view.js"></script>
-    <script src="app/views/slide.view.js"></script>
+    <script src="app/models/carousel.model.js"></script>
+    <script src="app/collections/mainSection.collection.js"></script>
+    <script src="app/views/mainSection.view.js"></script>
+    <script src="app/views/carousel.view.js"></script>
     <script src="app/initializer.js"></script>
-
-
-
-
 </body>
 </html>

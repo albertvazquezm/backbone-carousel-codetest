@@ -1,12 +1,12 @@
 (function(app){
     'use strict';
 
-    var SlideModel = Backbone.Model.extend({
+    var CarouselModel = Backbone.Model.extend({
         defaults : {
             images : [],
             title : ''
         }
     });
 
-    app.SlideModel = SlideModel;
+    app.CarouselModel = CarouselModel;
 })(window.app);

@@ -1,9 +1,9 @@
 (function(app){
     'use strict';
 
-    var slidesData = [
+    var carouselsData = [
         {
-            title : 'Slideshow 1',
+            title : 'Our services',
             images : [
                 'http://placehold.it/300x300',
                 'http://placehold.it/300x300',
@@ -11,7 +11,7 @@
             ]
         },
         {
-            title : 'Slideshow 1',
+            title : 'Technology we love',
             images : [
                 'http://placehold.it/300x300',
                 'http://placehold.it/300x300',
@@ -20,30 +20,12 @@
         }
     ];
 
-    app.slidesCollectionInstance = new app.SlideshowCollection(slidesData);
+    app.mainCollectionInstance = new app.MainSectionCollection(carouselsData);
 
-    var slideshowView = new app.SlideshowView({collection:app.slidesCollectionInstance});
+    var mainSectionView = new app.MainSectionView({collection:app.mainCollectionInstance});
 
-    slideshowView.render();
+    mainSectionView.render();
 
-    $('#main-section').append(slideshowView.el);
-
-    /*var list = new Backbone.Collection(slidesData);
-
-    var slideshowView = new app.SlideshowColView({
-        collection : list
-    });
-
-    var slidesh
-
-    slideshowView.each(function(slide){
-        var slides = slide.get('images');
-        var slidesCollection = new app.SlideshowCollection(slides);
-        hero.set('images', slidesCollection);
-    });
-
-    slideshowView.render();
-
-    $('#app').append(slideshowView.el);*/
+    $('#app').append(mainSectionView.el);
 
 })(window.app);

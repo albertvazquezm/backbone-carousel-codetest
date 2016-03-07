@@ -1,9 +1,10 @@
 (function(app){
     'use strict';
 
-    var SlideView = Backbone.View.extend({
-        tagName: 'li',
-        template: _.template($('#slideshow-template').html()),
+    var CarouselView = Backbone.View.extend({
+        tagName: 'div',
+        className: 'carousel',
+        template: _.template($('#carousel-template').html()),
 
         initialize: function(){
             this.render();
@@ -13,5 +14,5 @@
         }
     });
 
-    app.SlideView = SlideView;
+    app.CarouselView = CarouselView;
 })(window.app);
