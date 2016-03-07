@@ -22,7 +22,7 @@
     function initialize(){
         this.generateRandomIndex();
         this.render();
-        this.model.on('change:index', this.onIndexChanges);
+        this.model.on('change:index', this.onIndexChanges.bind(this));
     }
 
     function render(){
@@ -35,7 +35,7 @@
     }
 
     function generateRandomIndex(){
-        var randomIndex = _getRandomInt(0, this.model.get('images').length + 1);
+        var randomIndex = _getRandomInt(0, this.model.get('images').length);
         this.model.set({index: Math.min(randomIndex, this.model.config.numberOfSlides)});
     }
 
@@ -84,12 +84,17 @@
     }
 
     function onIndexChanges(model, value){
-        console.log(value);
+        this.$el.find('.fa-arrow-right, .fa-arrow-left').show();
+        if(value === 0){
+            this.$el.find('.fa-arrow-right').hide();
+        }else if((value + this.model.config.numberOfSlides) >= this.numberOfSlides){
+            this.$el.find('.fa-arrow-left').hide();
+        }
     }
 
     function _setCarouselToIndex(){
         var distance = this.model.get('index') * this.slideWidth;
-        console.log(distance, this.model.get('index'));
+        onIndexChanges.call(this);
         this.$el.find('ul').css({
             'margin-left':'-='+distance
         });
