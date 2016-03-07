@@ -18,4 +18,6 @@ gulp.task('sass:watch', function () {
     gulp.watch('./styles/**/*.scss', ['sass']);
 });
 
-gulp.task('try', ['sass', 'sass:watch', 'connect']);
+gulp.task('dev', ['sass', 'sass:watch', 'connect']);
+
+gulp.task('try', ['sass', 'connect']);
